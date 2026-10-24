@@ -1,0 +1,526 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Ayuda · Logrin Negocio</title>
+<meta name="description" content="Preguntas frecuentes de Logrin Negocio: planes, prueba gratis, ventas, caja, inventario, tienda online, Mi Mercadito y soporte.">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+/* Layout: plataforma estilo "journey builder" — barra lateral oscura, lienzo punteado con nodos conectados por carriles, panel lateral de respuesta. */
+:root{
+  --canvas:#E7E4DF; --dot:#CBC5BC; --ink:#1F1E1C; --muted:#5E5A54;
+  --panel:#2A2927; --panel-2:#353331; --panel-ink:#F4F2EF; --panel-muted:#B5AFA7;
+  --card:#FFFFFF; --line:#ADA69C; --chip:#F3F1EE;
+  --accent:#C9481A; --accent-hi:#F26A2E; --on-accent:#FFFFFF; --root-ink:#1B0E06;
+  --peach:#FBE1CF; --peach-ink:#7A2E0C; --soft:#F6A97C;
+  --warn:#9A6400; --warn-bg:#FFF1D6; --ok:#2E7D4F;
+  --shadow:0 1px 0 rgba(0,0,0,.04),0 8px 24px -12px rgba(40,30,20,.25);
+  --f-display:"Unbounded","Arial Black",system-ui,sans-serif;
+  --f-body:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --canvas:#141312; --dot:#2B2926; --ink:#EDEAE5; --muted:#A8A29A;
+  --panel:#252321; --panel-2:#302E2B; --panel-ink:#F4F2EF; --panel-muted:#ADA79F;
+  --card:#1D1C1A; --line:#4D4944; --chip:#262422;
+  --accent:#E0582A; --accent-hi:#F26A2E; --on-accent:#140A04; --root-ink:#1B0E06;
+  --peach:#3A2519; --peach-ink:#F7B48C; --soft:#B8643A;
+  --warn:#F2C14E; --warn-bg:#3A2E12; --ok:#6CCB93;
+  --shadow:0 1px 0 rgba(0,0,0,.3),0 10px 28px -14px rgba(0,0,0,.7); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --canvas:#141312; --dot:#2B2926; --ink:#EDEAE5; --muted:#A8A29A;
+  --panel:#252321; --panel-2:#302E2B; --panel-ink:#F4F2EF; --panel-muted:#ADA79F;
+  --card:#1D1C1A; --line:#4D4944; --chip:#262422;
+  --accent:#E0582A; --accent-hi:#F26A2E; --on-accent:#140A04; --root-ink:#1B0E06;
+  --peach:#3A2519; --peach-ink:#F7B48C; --soft:#B8643A;
+  --warn:#F2C14E; --warn-bg:#3A2E12; --ok:#6CCB93;
+  --shadow:0 1px 0 rgba(0,0,0,.3),0 10px 28px -14px rgba(0,0,0,.7); color-scheme:dark}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{background:var(--canvas);color:var(--ink);font:15px/1.5 var(--f-body)}
+button,input{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--accent-hi);outline-offset:2px;border-radius:8px}
+
+.app{display:grid;grid-template-columns:260px minmax(0,1fr);gap:16px;min-height:100%;
+  padding-block:16px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+
+/* Barra lateral */
+.side{background:var(--panel);color:var(--panel-ink);border-radius:22px;padding:18px 12px;display:flex;flex-direction:column;gap:6px;
+  position:sticky;top:calc(16px + env(safe-area-inset-top,0px));align-self:start;max-height:calc(100vh - 32px);overflow:auto}
+.brand{display:flex;align-items:center;gap:10px;padding:4px 8px 14px;border-bottom:1px solid var(--panel-2);margin-bottom:8px}
+.brand-mark{width:34px;height:34px;border-radius:50%;border:3px solid var(--accent-hi);display:grid;place-items:center}
+.brand-mark i{width:14px;height:14px;border-radius:4px;border:3px solid var(--accent-hi)}
+.brand b{font:700 13px/1.1 var(--f-display);letter-spacing:.02em}
+.brand small{display:block;color:var(--panel-muted);font-size:12px;font-weight:500}
+.side h3{font:600 11px/1 var(--f-body);letter-spacing:.12em;text-transform:uppercase;color:var(--panel-muted);margin:14px 10px 6px}
+.nav-btn{display:flex;align-items:center;gap:10px;width:100%;text-align:left;background:none;border:0;padding:8px 10px;border-radius:10px;cursor:pointer;color:var(--panel-ink);font-size:14px}
+.nav-btn:hover{background:var(--panel-2)}
+.nav-btn.on{background:var(--accent-hi);color:var(--root-ink);font-weight:600}
+.nav-btn svg{flex:none;width:18px;height:18px}
+.nav-btn span{flex:1}
+.nav-btn em{font:500 11px/1 var(--f-mono);font-style:normal;color:var(--panel-muted)}
+.nav-btn.on em{color:var(--root-ink)}
+.side-foot{margin-top:auto;padding:14px 10px 4px;border-top:1px solid var(--panel-2);font-size:12px;color:var(--panel-muted)}
+
+/* Barra superior */
+.main{min-width:0;display:flex;flex-direction:column;gap:14px}
+.top{background:var(--panel);color:var(--panel-ink);border-radius:22px;padding:16px 18px;display:flex;flex-wrap:wrap;align-items:center;gap:12px 16px}
+.top h1{font:700 clamp(18px,2.2vw,22px)/1.15 var(--f-display);margin:0;letter-spacing:.01em;text-wrap:balance}
+.top h1 span{color:var(--accent-hi)}
+.top p{margin:2px 0 0;color:var(--panel-muted);font-size:13px}
+.top-l{flex:1 1 260px;min-width:0}
+.search{flex:1 1 280px;display:flex;align-items:center;gap:8px;background:var(--card);color:var(--ink);border-radius:999px;padding:4px 6px 4px 14px;min-width:0}
+.search svg{flex:none;width:18px;height:18px;color:var(--muted)}
+.search input{flex:1;min-width:0;border:0;background:transparent;padding:8px 0;outline:none;font-size:15px}
+.search kbd{font:500 11px var(--f-mono);color:var(--muted);border:1px solid var(--line);border-radius:6px;padding:2px 6px}
+.clear{border:0;background:var(--chip);border-radius:999px;padding:6px 10px;cursor:pointer;font-size:12px}
+
+/* Pestañas de público */
+.aud{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.aud-l{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-right:4px}
+.tab{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:7px 14px;cursor:pointer;font-size:13px;font-weight:600;display:flex;gap:8px;align-items:center}
+.tab b{font:500 11px var(--f-mono);color:var(--muted)}
+.tab[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.tab[aria-pressed="true"] b{color:var(--on-accent)}
+.mchips{display:none;gap:8px;overflow-x:auto;padding-bottom:4px;scrollbar-width:none}
+.mchips button{flex:none;border:1px solid var(--line);background:var(--card);border-radius:999px;padding:6px 12px;font-size:13px;cursor:pointer;white-space:nowrap}
+
+/* Lienzo */
+.canvas{position:relative;background:var(--canvas);background-image:radial-gradient(var(--dot) 1.2px,transparent 1.3px);background-size:22px 22px;
+  border-radius:22px;border:1px solid color-mix(in srgb,var(--line) 40%,transparent);padding:22px 20px 96px;min-width:0}
+.root{display:flex;gap:16px;align-items:center;background:var(--accent-hi);color:var(--root-ink);border-radius:18px;padding:18px 22px;max-width:640px;box-shadow:var(--shadow);position:relative}
+.root svg{flex:none;width:38px;height:38px}
+.root h2{font:700 clamp(18px,2.4vw,24px)/1.15 var(--f-display);margin:0;text-wrap:balance}
+.root p{margin:4px 0 0;font-size:14px}
+.root p b{font-weight:700}
+.lanes{position:relative;margin-left:22px;padding-left:28px;border-left:2px solid var(--line);margin-top:0;padding-top:22px;display:flex;flex-direction:column;gap:30px}
+.lane{position:relative}
+.lane-tag{position:relative;display:inline-flex;align-items:center;gap:10px;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:7px 14px 7px 8px;font-weight:600;font-size:14px;margin-bottom:14px;box-shadow:var(--shadow)}
+.lane-tag::before{content:"";position:absolute;left:-30px;top:50%;width:30px;height:2px;background:var(--line)}
+.lane-tag i{width:24px;height:24px;border-radius:50%;background:var(--peach);color:var(--peach-ink);display:grid;place-items:center;font:700 12px var(--f-mono);font-style:normal}
+.lane-tag small{color:var(--muted);font-weight:500;font-size:12px}
+.nodes{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:18px;align-items:start}
+
+.node{background:var(--panel);border-radius:18px;padding:6px;box-shadow:var(--shadow);scroll-margin-top:90px;min-width:0}
+.node-h{display:flex;align-items:center;gap:10px;color:var(--panel-ink);padding:10px 12px 12px}
+.node-h svg{flex:none;width:22px;height:22px;color:#3DD27A}
+.node-h h3{flex:1;margin:0;font:600 15px/1.25 var(--f-body)}
+.node-h em{font:500 11px var(--f-mono);font-style:normal;color:var(--panel-muted)}
+.node-b{background:var(--card);border-radius:13px;padding:12px 12px 12px 8px}
+.qs{position:relative;list-style:none;margin:0;padding:0 0 0 30px;display:flex;flex-direction:column;gap:8px}
+.qs::before{content:"";position:absolute;left:13px;top:0;bottom:18px;width:2px;background:var(--line)}
+.qs li{position:relative}
+.qs li::before{content:"";position:absolute;left:-17px;top:50%;width:17px;height:2px;background:var(--line)}
+.q{width:100%;text-align:left;border:1px solid color-mix(in srgb,var(--line) 70%,transparent);background:var(--card);border-radius:12px;padding:9px 12px;cursor:pointer;font-size:14px;line-height:1.35;display:flex;gap:8px;align-items:flex-start;transition:border-color .15s,background .15s,opacity .2s}
+.q:hover{border-color:var(--accent-hi);background:var(--peach)}
+.q.sel{border-color:var(--accent);background:var(--peach);color:var(--peach-ink);font-weight:600}
+.q .dot{flex:none;width:8px;height:8px;border-radius:50%;margin-top:6px;background:var(--soft)}
+.q[data-e="pronto"] .dot{background:transparent;border:2px dashed var(--muted)}
+.q[data-e="confirmar"] .dot{background:var(--warn)}
+.q.dim{opacity:.28}
+.q mark{background:var(--accent-hi);color:var(--root-ink);border-radius:3px;padding:0 2px}
+.plus{position:absolute;left:4px;top:-4px;width:20px;height:20px;border-radius:50%;background:var(--card);border:1px solid var(--line);display:grid;place-items:center;font:600 13px/1 var(--f-body);color:var(--muted);z-index:1}
+
+/* Vista lista */
+.list{display:flex;flex-direction:column;gap:10px;max-width:860px}
+.list-item{background:var(--card);border:1px solid color-mix(in srgb,var(--line) 60%,transparent);border-radius:14px;padding:14px 16px;cursor:pointer;text-align:left;width:100%;display:grid;gap:4px}
+.list-item:hover{border-color:var(--accent-hi)}
+.list-item b{font-size:15px}
+.list-item span{color:var(--muted);font-size:14px}
+.list-item small{font:500 11px var(--f-mono);color:var(--muted);letter-spacing:.04em;text-transform:uppercase}
+.empty{background:var(--card);border-radius:14px;padding:22px;max-width:620px}
+.empty b{display:block;font-size:16px;margin-bottom:4px}
+
+/* Barra flotante inferior */
+.dock{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:20;display:flex;align-items:center;gap:4px;background:var(--card);border-radius:16px;padding:6px;box-shadow:0 10px 30px -10px rgba(0,0,0,.35);border:1px solid color-mix(in srgb,var(--line) 50%,transparent);max-width:calc(100% - 32px);overflow-x:auto}
+.dock button{border:0;background:none;padding:8px 12px;border-radius:10px;cursor:pointer;font-weight:600;font-size:13px;display:flex;align-items:center;gap:6px;white-space:nowrap}
+.dock button[aria-pressed="true"]{background:var(--panel);color:var(--panel-ink)}
+.dock .sep{width:1px;height:22px;background:var(--line);flex:none;margin:0 4px}
+.dock .stat{display:flex;align-items:center;gap:6px;padding:0 10px;font-size:13px;white-space:nowrap;color:var(--muted)}
+.dock .stat b{color:var(--ink);font-variant-numeric:tabular-nums}
+.dock .stat i{width:9px;height:9px;border-radius:50%;display:inline-block}
+
+/* Panel de respuesta */
+.scrim{position:fixed;inset:0;background:rgba(15,12,10,.35);z-index:30}
+.drawer{position:fixed;top:calc(12px + env(safe-area-inset-top,0px));right:calc(12px + env(safe-area-inset-right,0px));bottom:calc(12px + env(safe-area-inset-bottom,0px));width:min(500px,calc(100% - 24px));z-index:31;
+  background:var(--chip);border-radius:24px;box-shadow:0 30px 60px -20px rgba(0,0,0,.5);display:flex;flex-direction:column;overflow:hidden;border:1px solid color-mix(in srgb,var(--line) 50%,transparent)}
+.d-head{background:var(--panel);color:var(--panel-ink);padding:18px 20px 0}
+.d-top{display:flex;align-items:center;gap:10px;margin-bottom:10px;flex-wrap:wrap}
+.d-mod{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--panel-muted);font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+.d-mod svg{width:16px;height:16px;color:#3DD27A}
+.badge{font:600 11px/1 var(--f-body);padding:5px 9px;border-radius:999px;letter-spacing:.02em}
+.b-ok{background:color-mix(in srgb,var(--ok) 25%,transparent);color:#9BE6B8}
+.b-pronto{background:var(--panel-2);color:var(--panel-ink);border:1px dashed var(--panel-muted)}
+.b-conf{background:#4A3A12;color:#F7D27A}
+.x{margin-left:auto;border:0;background:var(--panel-2);color:var(--panel-ink);width:34px;height:34px;border-radius:50%;cursor:pointer;font-size:18px;line-height:1}
+.d-head h2{font:700 19px/1.3 var(--f-display);margin:0 0 14px;text-wrap:balance}
+.d-tabs{display:flex;gap:4px}
+.d-tabs button{border:0;background:none;color:var(--panel-muted);padding:10px 14px;font-weight:600;cursor:pointer;border-bottom:3px solid transparent;font-size:14px}
+.d-tabs button[aria-selected="true"]{color:var(--panel-ink);border-color:var(--accent-hi)}
+.d-body{flex:1;overflow:auto;padding:20px}
+.d-body p{margin:0 0 12px;max-width:62ch}
+.lead{font-size:16px;line-height:1.55}
+.note{background:var(--warn-bg);color:var(--ink);border-radius:12px;padding:12px 14px;font-size:14px;margin-top:6px}
+.note b{color:var(--warn)}
+.steps{list-style:none;margin:0;padding:0;counter-reset:s;display:flex;flex-direction:column;gap:10px}
+.steps li{counter-increment:s;display:grid;grid-template-columns:30px 1fr;gap:10px;background:var(--card);border-radius:12px;padding:12px}
+.steps li::before{content:counter(s);width:26px;height:26px;border-radius:50%;background:var(--accent-hi);color:var(--root-ink);display:grid;place-items:center;font:700 12px var(--f-mono)}
+.ficha{width:100%;border-collapse:collapse;background:var(--card);border-radius:12px;overflow:hidden;font-size:14px}
+.ficha th,.ficha td{text-align:left;padding:10px 12px;border-bottom:1px solid color-mix(in srgb,var(--line) 40%,transparent);vertical-align:top}
+.ficha th{width:38%;color:var(--muted);font-weight:600}
+.ficha td code{font:500 12px var(--f-mono)}
+.related{margin-top:18px}
+.related h4{margin:0 0 8px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.related button{display:block;width:100%;text-align:left;border:0;background:var(--card);border-radius:10px;padding:9px 12px;margin-bottom:6px;cursor:pointer;font-size:14px}
+.related button:hover{background:var(--peach)}
+.d-foot{display:flex;gap:8px;padding:12px 16px;border-top:1px solid color-mix(in srgb,var(--line) 50%,transparent);background:var(--chip);flex-wrap:wrap}
+.btn{border:0;border-radius:12px;padding:11px 16px;font-weight:700;cursor:pointer;font-size:14px}
+.btn-a{background:var(--accent);color:var(--on-accent)}
+.btn-b{background:var(--card);border:1px solid var(--line)}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(84px + env(safe-area-inset-bottom,0px));background:var(--panel);color:var(--panel-ink);padding:10px 16px;border-radius:12px;z-index:40;font-weight:600;font-size:14px}
+
+@media (max-width:900px){
+  .app{grid-template-columns:minmax(0,1fr)}
+  .side{display:none}
+  .mchips{display:flex}
+  .lanes{margin-left:10px;padding-left:18px}
+  .lane-tag::before{left:-20px;width:20px}
+  .nodes{grid-template-columns:minmax(0,1fr)}
+  .canvas{padding:16px 12px 96px}
+  .root{padding:14px 16px}
+  .drawer{top:auto;left:0;right:0;bottom:0;width:100%;max-height:88vh;border-radius:22px 22px 0 0;padding-bottom:env(safe-area-inset-bottom,0px)}
+  .dock .stat.hide-s{display:none}
+}
+@media (prefers-reduced-motion:no-preference){
+  .drawer{animation:slide .22s ease-out}
+  @keyframes slide{from{transform:translateX(24px);opacity:.4}to{transform:none;opacity:1}}
+}
+</style>
+
+</head>
+<body>
+<div class="app">
+  <aside class="side" aria-label="Módulos">
+    <div class="brand"><div class="brand-mark"><i></i></div><div><b>Logrin Negocio</b><small>Centro de ayuda</small></div></div>
+    <h3>Mapa del sistema</h3>
+    <nav id="nav"></nav>
+    <div class="side-foot">Respuestas revisadas con la versión publicada <b>R-46</b> · 24 oct 2026</div>
+  </aside>
+
+  <main class="main">
+    <header class="top">
+      <div class="top-l">
+        <h1>Preguntas frecuentes de <span>Logrin</span></h1>
+        <p>Toca cualquier pregunta del mapa para ver la respuesta, los pasos y su ficha. <a href="./" style="color:var(--accent-hi);font-weight:600">Volver a Logrin</a></p>
+      </div>
+      <label class="search" for="q">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input id="q" type="search" placeholder="Busca: precio, Yape, turno, contraseña…" autocomplete="off">
+        <kbd>/</kbd>
+      </label>
+    </header>
+
+    <div class="aud" role="group" aria-label="¿Quién pregunta?">
+      <span class="aud-l">¿Quién pregunta?</span>
+      <button class="tab" data-a="all" aria-pressed="true">Todos <b id="c-all"></b></button>
+      <button class="tab" data-a="P" aria-pressed="false">Quiero contratar <b id="c-P"></b></button>
+      <button class="tab" data-a="C" aria-pressed="false">Ya uso Logrin <b id="c-C"></b></button>
+      <button class="tab" data-a="V" aria-pressed="false">Soy vendedor <b id="c-V"></b></button>
+    </div>
+    <div class="mchips" id="mchips" aria-label="Ir a un módulo"></div>
+
+    <section class="canvas" id="canvas" aria-live="polite"></section>
+  </main>
+</div>
+
+<div class="dock" role="toolbar" aria-label="Vista">
+  <button id="v-map" aria-pressed="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="14" width="7" height="7" rx="2"/><path d="M10 6.5h4a2 2 0 0 1 2 2V14"/></svg>Mapa</button>
+  <button id="v-list" aria-pressed="false"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>Lista</button>
+  <span class="sep"></span>
+  <span class="stat"><b id="s-total"></b> preguntas</span>
+  <span class="stat hide-s"><i style="background:var(--warn)"></i><b id="s-conf"></b> por confirmar</span>
+  <span class="stat hide-s"><i style="border:2px dashed var(--muted)"></i><b id="s-pronto"></b> en camino</span>
+</div>
+
+<div class="scrim" id="scrim" hidden></div>
+<aside class="drawer" id="drawer" hidden role="dialog" aria-modal="true" aria-labelledby="d-title">
+  <div class="d-head">
+    <div class="d-top"><span class="d-mod" id="d-mod"></span><span id="d-badge"></span><button class="x" id="d-x" aria-label="Cerrar">×</button></div>
+    <h2 id="d-title"></h2>
+    <div class="d-tabs" role="tablist">
+      <button role="tab" data-t="r" aria-selected="true">Respuesta</button>
+      <button role="tab" data-t="p" aria-selected="false">Pasos</button>
+      <button role="tab" data-t="f" aria-selected="false">Ficha</button>
+    </div>
+  </div>
+  <div class="d-body" id="d-body"></div>
+  <div class="d-foot">
+    <button class="btn btn-a" id="copy-a">Copiar respuesta</button>
+    <button class="btn btn-b" id="copy-l">Copiar enlace</button>
+  </div>
+</aside>
+<div class="toast" id="toast" hidden></div>
+
+<script>
+const ICON={
+ conoce:'<path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/><path d="M12 12l8-4.5M12 12v9M12 12L4 7.5"/>',
+ planes:'<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18M7 15h4"/>',
+ acceso:'<rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/>',
+ vender:'<path d="M4 4h2l2.4 11.2a2 2 0 0 0 2 1.6h7.2a2 2 0 0 0 2-1.5L21 8H7"/><circle cx="10" cy="20" r="1.3"/><circle cx="18" cy="20" r="1.3"/>',
+ inventario:'<path d="M3 7l9-4 9 4-9 4z"/><path d="M3 7v10l9 4 9-4V7M12 11v10"/>',
+ finanzas:'<path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/>',
+ clientes:'<circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M16 4.5a3.5 3.5 0 0 1 0 7M18 14a6 6 0 0 1 3.5 6"/>',
+ tienda:'<path d="M4 9l1.5-5h13L20 9M4 9h16v11H4zM4 9a3 3 0 0 0 5.3 1.9A3 3 0 0 0 12 12a3 3 0 0 0 2.7-1.1A3 3 0 0 0 20 9"/><path d="M10 20v-5h4v5"/>',
+ mercadito:'<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/>',
+ equipo:'<path d="M12 3l7 3v5c0 5-3 8.5-7 10-4-1.5-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/>',
+ legal:'<path d="M12 3v18M5 7h14M7 7l-3 7a3 3 0 0 0 6 0zM17 7l-3 7a3 3 0 0 0 6 0zM8 21h8"/>',
+ soporte:'<rect x="5" y="7" width="14" height="11" rx="3"/><path d="M12 3v4M9 12h.01M15 12h.01M9.5 15h5M3 12v2M21 12v2"/>'
+};
+const MOD={
+ conoce:'Conoce Logrin', planes:'Planes, precios y prueba', acceso:'Acceso y contraseñas', vender:'Vender y caja',
+ inventario:'Inventario, compras y gastos', finanzas:'Finanzas y cobros', clientes:'Clientes y aliados',
+ tienda:'Tienda online', mercadito:'Mi Mercadito', equipo:'Tu equipo y permisos', legal:'Reglas y reclamos', soporte:'Ayuda y soporte'
+};
+const LANES=[
+ {n:'1',t:'Antes de contratar',s:'qué es, cuánto cuesta, cómo probarlo',m:['conoce','planes']},
+ {n:'2',t:'El día a día',s:'entrar, vender, inventario, cuentas',m:['acceso','vender','inventario','finanzas','clientes']},
+ {n:'3',t:'Vender por internet',s:'tu tienda y Mi Mercadito',m:['tienda','mercadito']},
+ {n:'4',t:'Orden, reglas y ayuda',s:'permisos, leyes, soporte',m:['equipo','legal','soporte']}
+];
+const AUD={P:'Quien quiere contratar',C:'Dueño o administrador',V:'Vendedor o cajero'};
+const EST={ok:'Disponible',pronto:'En camino',confirmar:'Por confirmar'};
+/* Base de preguntas. Campos: id, m (módulo), q, a (respuesta), p (pasos), n (nota), u (público), pl (plan), e (estado) */
+const FAQ=[
+/* CONOCE */
+{id:'que-es',m:'conoce',u:'P',q:'¿Qué es Logrin Negocio?',a:'Es un sistema en línea para manejar tu negocio desde el celular o la computadora. Reúne en un solo lugar tus ventas con caja, inventario, compras y gastos, clientes, finanzas, metas, tu tienda en internet y tu vitrina en Mi Mercadito. Cada negocio tiene su propio espacio y nadie más ve tus datos.'},
+{id:'rubros',m:'conoce',u:'P',q:'¿Para qué tipo de negocios sirve?',a:'Para tiendas, negocios de alimentos y productos artesanales, restaurantes, servicios, distribuidoras, tiendas de ropa, farmacias y otros rubros. Al crear tu negocio se elige su rubro y el sistema trae textos y ejemplos pensados para ese tipo de negocio.'},
+{id:'instalar',m:'conoce',u:'PCV',q:'¿Tengo que instalar algún programa?',a:'No. Entras desde el navegador con el link de tu negocio y funciona igual en celular, tablet o computadora. Si quieres tenerlo a un toque, guárdalo como acceso directo en tu celular.',p:['Abre el link de tu negocio en Chrome.','Toca el menú de los tres puntos (⋮).','Elige “Agregar a la pantalla principal”.','Desde ahora lo abres como una app más.']},
+{id:'internet',m:'conoce',u:'PCV',e:'confirmar',q:'¿Funciona sin internet?',a:'Logrin trabaja en la nube: necesita conexión para guardar tus ventas y para que todo tu equipo vea los mismos datos. Si se corta el internet, espera a que vuelva antes de registrar.',n:'Por confirmar con el equipo técnico qué pasa exactamente con una venta que se registra justo cuando se cae la conexión.'},
+{id:'seguro',m:'conoce',u:'PC',q:'¿Mis datos están seguros?',a:'Cada negocio solo puede ver lo suyo, y eso lo exige la propia base de datos, no solo la pantalla. Cada venta, gasto y cambio queda firmado con el nombre de quien lo hizo y la hora. La página no usa rastreadores ni publicidad de terceros.'},
+{id:'sunat',m:'conoce',u:'PCV',q:'¿Logrin emite boletas y facturas electrónicas de SUNAT?',a:'Todavía no. Si emites comprobantes con un facturador aparte, en cada venta anotas el tipo y el número del comprobante, y el sistema te sugiere el siguiente número para que no te equivoques (si la última boleta fue B001-0099, te propone B001-0100).'},
+{id:'idioma',m:'conoce',u:'PC',e:'pronto',q:'¿El sistema está en inglés?',a:'Hoy todo está en español. Está planificado que tu sistema, tu tienda y tu página puedan cambiar entre español e inglés.'},
+{id:'restaurantes',m:'conoce',u:'PC',e:'pronto',q:'¿Tiene algo especial para restaurantes?',a:'Ya está lista una mejora para restaurantes que pronto se publica: menú del día o de la semana con porciones que se agotan solas, mesas en la comanda y palabras propias del rubro, como “Tomar pedido” y “Menú y carta”. Más adelante vendrán el mapa de mesas y la pantalla de cocina.'},
+
+/* PLANES */
+{id:'precios',m:'planes',u:'P',q:'¿Cuánto cuesta Logrin?',a:'Los precios mensuales que muestra hoy la página son: Solo tienda S/ 47, Básico S/ 69, Intermedio S/ 129 y Pro S/ 199. Algunos planes tienen promoción si pagas 3, 6 o 12 meses por adelantado: la página te muestra el precio rebajado y cuánto ahorras.',n:'Revisa siempre la sección de planes de la página: los precios y las promociones se pueden actualizar.'},
+{id:'diferencia',m:'planes',u:'P',q:'¿Qué diferencia hay entre los planes?',a:'Básico, Intermedio y Pro traen el sistema completo para tu negocio; mientras más alto el plan, más herramientas y más usuarios incluye. Solo tienda es para quien solo quiere vender por internet. En cada tarjeta de la página ves con un ✓ lo que incluye y con una ✕ lo que no.'},
+{id:'solo-tienda',m:'planes',u:'P',q:'¿Qué es el plan Solo tienda?',a:'Es para quien no necesita el sistema completo: tienes tu tienda en internet con carrito, apareces en Mi Mercadito y manejas todo desde un panel sencillo con tus pedidos, productos, stock y clientes. Cuando entregas un pedido tocas “Entregar”, eliges cómo te pagaron y la venta queda registrada.'},
+{id:'prueba',m:'planes',u:'P',q:'¿Cómo funciona la prueba gratis de 7 días?',a:'Llenas el formulario de la página y tu sistema se crea al momento, con el plan que elegiste. En pantalla ves tu link, tu usuario y tu contraseña una sola vez, así que guárdalos bien. No pedimos tarjeta.',p:['En la página de Logrin, ve a “Prueba 7 días gratis” y elige el plan.','Escribe tu nombre, celular, correo y el nombre de tu negocio. El RUC es opcional.','Acepta la política de privacidad.','Copia o descarga tu link, usuario y contraseña.','Entra con esos datos y empieza a cargar tus productos.'],n:'Si en ese momento la prueba no se crea sola, tu solicitud llega al equipo de Logrin y te escriben para activarla.'},
+{id:'otra-prueba',m:'planes',u:'P',q:'¿Puedo pedir una segunda prueba gratis?',a:'Hay una prueba por correo, celular o RUC. Si ya usaste una, el sistema te lo indica con un mensaje amable y el equipo te contacta para ver qué plan te conviene.'},
+{id:'pagar',m:'planes',u:'PC',q:'¿Cómo pago mi plan?',a:'Hoy el botón “Consigue…” de cada plan abre WhatsApp con el plan y el precio ya escritos. El equipo te indica cómo pagar y registra tu pago; desde ahí tu sistema queda activo. El pago en línea con tarjeta o Yape desde la misma página ya está construido y se activará pronto.'},
+{id:'renueva',m:'planes',u:'C',q:'¿Mi plan se cobra solo cada mes?',a:'No. Logrin no hace cobros automáticos. Antes de que venza, tu sistema te avisa: una franja de color arriba y el robot asistente te indican cuántos días faltan.',p:['Faltan 3 días o menos: aviso naranja.','Último día de pago: aviso rojo.','Desde el aviso puedes tocar “Quiero renovar mi plan” y el equipo te contesta.']},
+{id:'vencido',m:'planes',u:'C',q:'¿Qué pasa si no pago a tiempo?',a:'Tienes unos días de gracia (hoy son 5). Si pasan sin pago, tu sistema queda en solo lectura: puedes ver todo, pero no registrar ventas nuevas. Tus datos no se borran. Apenas se registra tu pago, vuelve a funcionar normal.'},
+{id:'reembolso',m:'planes',u:'PC',q:'¿Puedo pedir un reembolso?',a:'La idea es que pruebes gratis antes de pagar. Lo que ya pagaste no se devuelve, salvo que haya un error de cobro, un cobro repetido o una falla grave de nuestra parte. Las condiciones completas están en la página de Reembolsos, enlazada al pie de la web.'},
+{id:'cambiar-plan',m:'planes',u:'C',q:'¿Puedo cambiar de plan o sumar una herramienta?',a:'Sí. Desde tu sistema abre el robot asistente y toca “Cambiar de plan o sumar un módulo”, o en la página toca “Actualiza a…”. El equipo de Logrin hace el cambio. También hay extras sueltos, como “Cobros en línea” para tu tienda.'},
+{id:'usuarios-plan',m:'planes',u:'PC',e:'confirmar',q:'¿Cuántos usuarios puedo tener?',a:'Depende del plan: cada tarjeta de la página indica cuántos usuarios incluye. Si necesitas más, se puede subir de plan o pedir un plan a medida.',n:'Por confirmar el número exacto de usuarios de cada plan vigente para escribirlo aquí.'},
+
+/* ACCESO */
+{id:'entrar',m:'acceso',u:'CV',q:'¿Cómo entro a mi sistema?',a:'Con el link de tu negocio (termina en ?n= y el código de tu negocio), tu usuario y tu contraseña. Cada persona de tu equipo tiene su propio usuario.'},
+{id:'cambiar-clave',m:'acceso',u:'CV',q:'¿Puedo cambiar mi contraseña?',a:'Desde tu sistema no. Las contraseñas las asigna Logrin, así el acceso de tu negocio está siempre controlado. Si quieres otra, pídela por el robot asistente.'},
+{id:'olvide',m:'acceso',u:'CV',q:'Olvidé mi contraseña, ¿qué hago?',a:'Pide una nueva desde la misma pantalla de ingreso. El equipo de Logrin recibe el aviso y te asigna otra.',p:['En la pantalla de ingreso toca “¿Olvidaste tu contraseña?”.','Escribe tu usuario y envía.','Espera la nueva contraseña del equipo.','Si la pegas desde WhatsApp, no te preocupes por el espacio que se cuela al final: el sistema lo quita solo.']},
+{id:'crear-usuarios',m:'acceso',u:'C',q:'¿Cómo creo usuarios para mis vendedores?',a:'Los usuarios se crean desde Logrin. Pide al equipo el nombre de la persona y su rol (Administrador, Vendedor o Marketing). Te entregan su usuario y contraseña para que se los pases. La cantidad depende del cupo de tu plan.'},
+
+/* VENDER */
+{id:'venta',m:'vender',u:'CV',q:'¿Cómo registro una venta?',a:'Desde el módulo Vender. Si tocas varias veces “Registrar venta” por apuro, igual se guarda una sola venta.',p:['Entra a Vender.','Elige el producto o escanea su código de barras.','Pon la cantidad: el total se calcula solo.','Elige cómo te pagan: efectivo, Yape, Plin, tarjeta, transferencia o crédito.','Si emites comprobante, revisa el tipo y el número sugerido.','Toca “Registrar venta”.']},
+{id:'precio-especial',m:'vender',u:'CV',q:'¿Cómo doy un precio especial a un cliente?',a:'Cambia el Total de ese artículo y el precio por unidad se ajusta solo. Por ejemplo, 3 polos de S/ 20 suman S/ 60; si escribes S/ 55 en el total, cada polo queda en S/ 18.33. Los vendedores también pueden hacerlo, salvo que el dueño les quite ese permiso.'},
+{id:'vuelto',m:'vender',u:'CV',q:'¿Por qué no me aparece el vuelto?',a:'“Recibido del cliente” y el vuelto solo aparecen cuando te pagan en efectivo. Con Yape, Plin, tarjeta o transferencia se cobra el monto exacto, así que no hay vuelto.'},
+{id:'turno',m:'vender',u:'CV',q:'¿Cómo abro y cierro mi turno de caja?',a:'Cada persona abre su turno con el efectivo que hay en caja. Al cerrar, el sistema calcula cuánto debería haber y tú escribes lo que contaste: así se ve al instante si sobra o falta.',p:['En Vender toca “Abrir mi turno” y escribe el efectivo inicial.','Vende normalmente durante tu turno.','Al terminar toca “Cerrar mi turno”.','Revisa la cuenta: fondo inicial + ventas en efectivo + cobros en efectivo − gastos pagados en efectivo.','Escribe lo que contaste y, si hay diferencia, deja una nota.']},
+{id:'credito',m:'vender',u:'CV',q:'¿Cómo vendo al crédito?',a:'Elige “Crédito” como forma de pago. El sistema te pide el cliente y la fecha en que pagará; si te deja algo, anótalo como adelanto. Luego cobras desde Ventas.',p:['En Vender elige “Crédito”.','Escoge al cliente (es obligatorio).','Pon la fecha de pago y, si deja algo, el adelanto.','Registra la venta.','Cuando pague, ve a Ventas › “Ventas al crédito por cobrar” y toca “Cobrar”. Puedes recibir pagos por partes.','Para recordarle, toca “WhatsApp”: el mensaje sale escrito.']},
+{id:'anular',m:'vender',u:'CV',q:'¿Cómo anulo una venta?',a:'Si eres administrador, toca “Anular” en la venta y elige el motivo: el stock vuelve solo y queda un aviso con quién anuló, cuánto y por qué. Si eres vendedor, toca “Pedir anulación o corrección” y explica el motivo con claridad (al menos 15 letras y 3 palabras); el administrador lo aprueba o rechaza en Control del negocio.'},
+{id:'por-vendedor',m:'vender',u:'C',q:'¿Dónde veo cuánto vendió cada vendedora?',a:'En Ventas › “Vendedores y turnos”. Ahí ves por persona sus ventas, cuánto cobró en efectivo y en Yape o tarjeta, sus gastos, mermas y anulaciones, y cada turno con lo que debía haber, lo que contó y la diferencia.'},
+
+/* INVENTARIO */
+{id:'productos',m:'inventario',u:'C',q:'¿Cómo agrego mis productos?',a:'En Inventario creas cada producto con su nombre, precio, costo, stock, código de barras y foto. Las fotos pueden ser PNG, JPG o WebP; el sistema las achica solo.',n:'Si tienes muchos productos, pide ayuda al equipo de Logrin para cargarlos de una vez.'},
+{id:'costo',m:'inventario',u:'C',q:'¿Por qué conviene poner el costo de cada producto?',a:'Sin el costo, el sistema no puede decirte cuánto ganas de verdad. Con el costo, Finanzas calcula tu margen y tu utilidad, y sabes qué productos te dejan más.'},
+{id:'merma',m:'inventario',u:'CV',q:'Se rompió o venció un producto, ¿cómo lo registro?',a:'Como merma. El stock baja solo y el total perdido del mes queda a la vista, con quién lo reportó.',p:['En Inventario toca “Registrar merma o rotura”.','Elige el producto o escribe algo que no está en tu inventario (por ejemplo “vaso de vidrio”).','Pon la cantidad, el costo y el motivo: rotura, vencido, pérdida, consumo interno, regalo u otro.','Guarda. Lo verás en “Mermas y roturas del mes”.']},
+{id:'compra-gasto',m:'inventario',u:'CV',q:'¿Cómo registro una compra o un gasto?',a:'En Compras y gastos, o más rápido desde el Centro de control con “Registrar compra” y “Registrar gasto”: tocas el tipo (luz, agua, alquiler, mercadería…), escribes el monto y listo. Una compra de mercadería suma el stock y actualiza el costo del producto.'},
+{id:'recurrentes',m:'inventario',u:'C',q:'¿Puedo programar pagos que se repiten, como el alquiler o la luz?',a:'Sí. Los registras una vez y el sistema te avisa antes de cada vencimiento.',p:['En Compras y gastos toca “+ Pago que se repite”.','Escribe el nombre, el tipo, el monto y el día del mes.','Elige con cuántos días de anticipación quieres el aviso.','Cuando se acerque, aparece en “Pagos que vienen” del Centro de control.','Toca “Pagar”: el gasto se llena solo y el aviso se apaga hasta el próximo mes.']},
+
+/* FINANZAS */
+{id:'finanzas',m:'finanzas',u:'C',q:'¿Qué me muestra Finanzas?',a:'Tu estado de resultados del periodo que elijas, comparado con el anterior. Ventas menos el costo de lo vendido da tu utilidad bruta; si le restas los gastos administrativos y de ventas, obtienes tu utilidad neta. Los pagos de préstamos se muestran aparte, con el resultado final después de restarlos.'},
+{id:'flujo',m:'finanzas',u:'C',q:'¿Qué diferencia hay entre el flujo de caja y el cierre de turno?',a:'El cierre de turno cuadra la caja de una persona en su horario. El flujo de caja mira todo el negocio: lo que de verdad entró y salió (efectivo, Yape, Plin, banco) por día, semana o mes, y lo que viene en los próximos 30 días, con aviso si no te alcanza. El flujo de caja solo lo ve el administrador.'},
+{id:'me-deben',m:'finanzas',u:'C',q:'¿Dónde veo quién me debe?',a:'En Finanzas › “Quién me debe”: cada cliente con cuánto debe, cuánto está vencido y su próxima fecha, con un semáforo de colores. El Centro de control también te avisa cuando hay créditos vencidos.'},
+{id:'fechas',m:'finanzas',u:'C',q:'¿Puedo revisar un rango de fechas exacto?',a:'Sí. En Ventas, en Compras y gastos y en Finanzas, abre el selector de periodo y elige Hoy, Ayer, los últimos 7 o 30 días, un mes, o “Elegir fechas…” para un rango como del 2 al 5. Verás el total, el ticket promedio, el mejor día y la comparación con el periodo anterior.'},
+
+/* CLIENTES */
+{id:'clientes',m:'clientes',u:'CV',q:'¿Cómo se guardan mis clientes?',a:'Puedes crearlos en Clientes o elegirlos al vender. Cuando conviertes un pedido de tu tienda en venta, el sistema busca al cliente por su WhatsApp y, si no existe, lo crea marcado como “Tienda online”.'},
+{id:'aliados',m:'clientes',u:'CV',q:'¿Qué es “Aliados y referidos”?',a:'Es para llevar el control de quienes te recomiendan y de las personas que te traen. Guardas su contacto, zona y estado, y armas un plan de recorrido para visitarlos en orden, con la ruta en Google Maps. Cuando un referido compra, lo pasas a Clientes con un botón.'},
+
+/* TIENDA */
+{id:'ver-tienda',m:'tienda',u:'PC',q:'¿Cómo ven mi tienda mis clientes?',a:'Con el link y el QR de tu tienda, que están arriba en el módulo Tienda online. Tus clientes no necesitan entrar al sistema ni crear una cuenta.',p:['Entra a Tienda online.','Toca “Copiar link” o “Compartir por WhatsApp”.','Toca “Descargar QR” para imprimirlo y ponerlo en tu mostrador.','Pon el link en tu Instagram, Facebook o estado de WhatsApp.']},
+{id:'pedido',m:'tienda',u:'PC',q:'¿Cómo me hace un pedido un cliente?',a:'Agrega productos al carrito, toca “Ver mi pedido”, escribe su nombre, su WhatsApp y la entrega, elige cómo paga y envía. El pedido te llega a Ventas y pedidos, y se abre tu WhatsApp con el pedido ya escrito.'},
+{id:'cobro-tienda',m:'tienda',u:'C',q:'¿Cómo cobro los pedidos de mi tienda?',a:'Configura tu Yape o Plin una vez. El cliente ve tu QR, tu número y el monto exacto, paga y escribe el número de operación. Tú revisas tu app y marcas el pedido. El dinero va directo a ti: Logrin nunca lo toca.',p:['En Tienda online › “Cómo te pagan tus clientes” toca “Configurar”.','Pon tu número de Yape o Plin, a nombre de quién está y sube la imagen de tu QR.','Si aceptas efectivo al entregar, marca “Pago al entregar”.','Cuando llegue un pedido “Yape por confirmar”, revisa tu app y toca “Recibido” o “No llegó”.'],n:'Solo el administrador puede cambiar estos datos. Si alguien los cambia, te llega un aviso.'},
+{id:'24h',m:'tienda',u:'C',q:'¿Qué pasa si no reviso un pedido a tiempo?',a:'Si un pago queda sin confirmar 24 horas, el pedido se pinta de rojo en tu lista para que no se te pase.'},
+{id:'tarjeta-tienda',m:'tienda',u:'C',q:'¿Puedo cobrar con tarjeta en mi tienda?',a:'Sí, con tu propia cuenta de Culqi y el extra “Cobros en línea”. Pegas tus llaves de Culqi en Tienda online › “Cómo te pagan tus clientes”, y tu cliente paga con tarjeta o Yape en línea. El dinero entra a tu cuenta Culqi.'},
+{id:'avisame',m:'tienda',u:'PC',q:'¿Qué es “Avísame cuando llegue”?',a:'Cuando un producto está agotado, tu cliente puede dejar su correo o WhatsApp para que le avises. Al reponer el stock, lo ves en “Clientes esperando un producto” con un botón para avisarle por WhatsApp.'},
+{id:'color',m:'tienda',u:'C',q:'¿Puedo poner mi logo y mis colores?',a:'Sí, y se ve en tu sistema y en tu tienda. Puedes elegir entre los colores listos o cualquier color propio. Este cambio lo hace el equipo de Logrin: pídelo por el asistente con tu logo y tu color.'},
+
+/* MERCADITO */
+{id:'mercadito',m:'mercadito',u:'PC',q:'¿Qué es Mi Mercadito?',a:'Es una vitrina que reúne a todas las tiendas de Logrin en un solo lugar, para que la gente busque productos de todas. Todos los planes salen ahí, siempre que el negocio esté activo y al día.'},
+{id:'pago-mercadito',m:'mercadito',u:'PC',q:'¿Cómo me pagan en Mi Mercadito?',a:'Por adelantado, con tu Yape o tu Plin: el comprador ve tu QR y el monto, paga y escribe el número de operación. Si todavía no configuraste tu Yape o Plin, el comprador ve “Esta tienda aún no recibe pagos” y no puede enviarte el pedido.'},
+{id:'quitar-mercadito',m:'mercadito',u:'C',q:'¿Puedo elegir qué productos salen en Mi Mercadito?',a:'Sí. En el módulo Mi Mercadito de tu sistema ves tus productos con botones “Quitar” y “Mostrar”. Un producto sin precio nunca sale.'},
+{id:'no-aparece',m:'mercadito',u:'C',q:'¿Por qué mi tienda no aparece en Mi Mercadito?',a:'Revisa estos casos: estás en prueba gratis (sales cuando tu plan está activo), tu sistema está en solo lectura por un pago pendiente, tu tienda fue ocultada, o no tienes productos publicados con precio. El módulo Mi Mercadito te dice cuál es la razón.'},
+
+/* EQUIPO */
+{id:'roles',m:'equipo',u:'CV',q:'¿Qué puede hacer cada rol?',a:'El Administrador puede todo. El Vendedor registra ventas, cambia precios y pide anulaciones; no crea ni borra productos, no borra gastos ni clientes y no ve el flujo de caja. Marketing tiene menos permisos todavía. El equipo de Logrin puede ajustar estos permisos para tu negocio.'},
+{id:'control',m:'equipo',u:'C',q:'¿Qué es “Control del negocio”?',a:'Es la pantalla del administrador. Ahí apruebas o rechazas las solicitudes de anulación de tus vendedores, revisas la actividad (quién hizo qué y a qué hora, con descarga en CSV), ves qué puede hacer cada rol y atiendes tu Libro de Reclamaciones.'},
+{id:'borrar-venta',m:'equipo',u:'CV',q:'¿Alguien puede borrar o cambiar una venta a escondidas?',a:'No. Una venta registrada no se borra ni se cambia sin permiso, y cada acción queda en la actividad del negocio, que nadie puede editar ni borrar.'},
+
+/* LEGAL */
+{id:'libro',m:'legal',u:'PC',q:'¿Mi tienda necesita Libro de Reclamaciones?',a:'Sí, la ley lo exige a quien vende. Logrin trae uno virtual para cada tienda: el cliente recibe su constancia y tú lo atiendes en Control del negocio. Tienes 15 días hábiles para responder; el sistema te muestra la fecha límite.',n:'Para que tu libro muestre tus datos, pide que se completen la razón social, el RUC y el domicilio de tu tienda.'},
+{id:'licor',m:'legal',u:'PC',q:'Vendo bebidas alcohólicas, ¿qué cambia?',a:'Se activa la opción “Vende bebidas alcohólicas” en tu negocio. Tu tienda muestra el aviso de que está prohibida la venta a menores de 18 años, tus productos salen marcados “+18” en Mi Mercadito y el comprador debe confirmar que es mayor de edad antes de pedir.'},
+{id:'privacidad',m:'legal',u:'PC',q:'¿Dónde leo los términos y la política de privacidad?',a:'Al pie de la página de Logrin, de cada tienda y de Mi Mercadito están los enlaces a Privacidad, Términos, Cookies, Reembolsos y Libro de Reclamaciones. Se basan en las leyes peruanas de protección de datos y de protección al consumidor.'},
+{id:'cookies',m:'legal',u:'P',q:'¿La página usa cookies o rastreadores?',a:'Solo guarda en tu navegador lo necesario para que funcione: tu sesión, tu carrito y tus preferencias. No hay rastreadores ni analítica de terceros.'},
+
+/* SOPORTE */
+{id:'ayuda',m:'soporte',u:'CV',q:'¿Cómo pido ayuda?',a:'Toca el robot asistente, abajo a la derecha de tu sistema. Tiene preguntas listas y la opción “Hablar con un asesor”. Lo que escribes llega al equipo de Logrin, que te responde ahí mismo. Fuera del horario de atención, el asistente te avisa.'},
+{id:'error',m:'soporte',u:'CV',q:'Algo no funciona o me salió un error, ¿qué hago?',a:'Abre el asistente y toca “Algo no funciona o salió un error”. Cuéntanos qué estabas haciendo y, si puedes, adjunta una captura de pantalla: así lo resolvemos más rápido.'},
+{id:'contacto',m:'soporte',u:'PCV',q:'¿Cómo me comunico con Logrin?',a:'Por el chat de la página o el asistente de tu sistema. También por correo a gerentegeneral@flexgodigital.com o por WhatsApp al +51 919 446 978, los mismos datos que figuran en las páginas legales.'}
+];
+FAQ.forEach(f=>{f.e=f.e||'ok';f.u=f.u||'PCV'});
+
+const $=s=>document.querySelector(s);
+const state={aud:'all',q:'',view:'map',sel:null,tab:'r'};
+const esc=s=>s.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const norm=s=>s.normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase();
+const svg=k=>`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICON[k]}</svg>`;
+FAQ.forEach(f=>f._t=norm(f.q+' '+f.a+' '+(f.p||[]).join(' ')+' '+MOD[f.m]));
+
+function matches(f){
+  if(state.aud!=='all'&&!f.u.includes(state.aud))return false;
+  if(!state.q)return true;
+  return norm(state.q).split(/\s+/).filter(Boolean).every(w=>f._t.includes(w));
+}
+function hl(text){
+  if(!state.q)return esc(text);
+  let out=esc(text);
+  norm(state.q).split(/\s+/).filter(w=>w.length>2).forEach(w=>{
+    const t=norm(out);let i=t.indexOf(w);
+    if(i>-1&&!/<[^>]*$/.test(out.slice(0,i)))out=out.slice(0,i)+'<mark>'+out.slice(i,i+w.length)+'</mark>'+out.slice(i+w.length);
+  });
+  return out;
+}
+
+function render(){
+  const c=$('#canvas');
+  const vis=FAQ.filter(matches);
+  if(state.view==='list'){
+    c.innerHTML=vis.length?`<div class="list">${vis.map(f=>`<button class="list-item" data-id="${f.id}"><small>${esc(MOD[f.m])} · ${EST[f.e]}</small><b>${hl(f.q)}</b><span>${esc(f.a.slice(0,140))}${f.a.length>140?'…':''}</span></button>`).join('')}</div>`
+      :empty();
+  }else{
+    const total=vis.length;
+    c.innerHTML=`<div class="root">${rootIcon()}<div><h2>Logrin Negocio</h2><p><b>${total}</b> de ${FAQ.length} preguntas visibles${state.aud!=='all'?' para <b>'+esc(AUD[state.aud].toLowerCase())+'</b>':''}${state.q?' con “'+esc(state.q)+'”':''}</p></div></div>
+    <div class="lanes">${LANES.map(l=>`<section class="lane"><div class="lane-tag"><i>${l.n}</i>${esc(l.t)} <small>· ${esc(l.s)}</small></div>
+      <div class="nodes">${l.m.map(m=>node(m)).join('')}</div></section>`).join('')}</div>`;
+    if(!total)c.insertAdjacentHTML('beforeend',empty());
+  }
+  counts();
+}
+function node(m){
+  const items=FAQ.filter(f=>f.m===m);
+  const shown=items.filter(matches).length;
+  return `<article class="node" id="n-${m}"><div class="node-h">${svg(m)}<h3>${esc(MOD[m])}</h3><em>${shown}/${items.length}</em></div>
+  <div class="node-b"><span class="plus" aria-hidden="true">+</span><ul class="qs">${items.map(f=>{const ok=matches(f);
+    return `<li><button class="q${ok?'':' dim'}${state.sel===f.id?' sel':''}" data-id="${f.id}" data-e="${f.e}" ${ok?'':'tabindex="-1" aria-hidden="true"'} title="${EST[f.e]}"><span class="dot"></span><span>${hl(f.q)}</span></button></li>`}).join('')}</ul></div></article>`;
+}
+function rootIcon(){return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20s1-5 6-10 10-6 10-6-1 5-6 10-10 6-10 6z"/><path d="M9 15l-3-3M14 6l4 4M5 19l2-2"/></svg>'}
+function empty(){return `<div class="empty"><b>No encontramos esa pregunta todavía.</b>Prueba con otra palabra, cambia el público de arriba o anótala para sumarla a esta base.</div>`}
+function counts(){
+  ['all','P','C','V'].forEach(a=>{$('#c-'+a).textContent=FAQ.filter(f=>a==='all'||f.u.includes(a)).length});
+  $('#s-total').textContent=FAQ.length;
+  $('#s-conf').textContent=FAQ.filter(f=>f.e==='confirmar').length;
+  $('#s-pronto').textContent=FAQ.filter(f=>f.e==='pronto').length;
+}
+function buildNav(){
+  const all=Object.keys(MOD);
+  $('#nav').innerHTML=all.map(m=>`<button class="nav-btn" data-m="${m}">${svg(m)}<span>${esc(MOD[m])}</span><em>${FAQ.filter(f=>f.m===m).length}</em></button>`).join('');
+  $('#mchips').innerHTML=all.map(m=>`<button data-m="${m}">${esc(MOD[m])}</button>`).join('');
+}
+function goMod(m){
+  if(state.view!=='map'){setView('map')}
+  const el=document.getElementById('n-'+m); if(el)el.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});
+  document.querySelectorAll('.nav-btn').forEach(b=>b.classList.toggle('on',b.dataset.m===m));
+}
+
+/* Panel */
+let lastFocus=null;
+function open(id,push=true){
+  const f=FAQ.find(x=>x.id===id); if(!f)return;
+  lastFocus=document.activeElement; state.sel=id; state.tab='r';
+  $('#d-mod').innerHTML=svg(f.m)+esc(MOD[f.m]);
+  $('#d-badge').innerHTML=`<span class="badge ${f.e==='ok'?'b-ok':f.e==='pronto'?'b-pronto':'b-conf'}">${EST[f.e]}</span>`;
+  $('#d-title').textContent=f.q;
+  tabs(); $('#drawer').hidden=false; $('#scrim').hidden=false; $('#d-x').focus();
+  document.querySelectorAll('.q').forEach(b=>b.classList.toggle('sel',b.dataset.id===id));
+  if(push){try{history.replaceState(null,'','#'+id)}catch(e){}}
+}
+function close(){
+  $('#drawer').hidden=true; $('#scrim').hidden=true; state.sel=null;
+  document.querySelectorAll('.q.sel').forEach(b=>b.classList.remove('sel'));
+  try{history.replaceState(null,'',location.pathname+location.search)}catch(e){}
+  if(lastFocus&&lastFocus.focus)lastFocus.focus();
+}
+function tabs(){
+  const f=FAQ.find(x=>x.id===state.sel); if(!f)return;
+  document.querySelectorAll('.d-tabs button').forEach(b=>b.setAttribute('aria-selected',b.dataset.t===state.tab));
+  const b=$('#d-body');
+  if(state.tab==='r'){
+    const rel=FAQ.filter(x=>x.m===f.m&&x.id!==f.id).slice(0,3);
+    b.innerHTML=`<p class="lead">${esc(f.a)}</p>${f.n?`<div class="note"><b>${f.e==='confirmar'?'Por confirmar: ':'Ten en cuenta: '}</b>${esc(f.n)}</div>`:''}
+      ${f.p?`<p style="margin-top:14px"><button class="btn btn-b" data-go="p">Ver los ${f.p.length} pasos</button></p>`:''}
+      <div class="related"><h4>Más de ${esc(MOD[f.m])}</h4>${rel.map(r=>`<button data-id="${r.id}">${esc(r.q)}</button>`).join('')}</div>`;
+  }else if(state.tab==='p'){
+    b.innerHTML=f.p?`<ol class="steps">${f.p.map(s=>`<li><span>${esc(s)}</span></li>`).join('')}</ol>`
+      :`<p>Esta respuesta no necesita pasos: la explicación cabe en la pestaña Respuesta.</p>`;
+  }else{
+    b.innerHTML=`<table class="ficha"><tbody>
+      <tr><th>Código</th><td><code>${f.id}</code></td></tr>
+      <tr><th>Módulo</th><td>${esc(MOD[f.m])}</td></tr>
+      <tr><th>Para quién</th><td>${f.u.split('').map(a=>esc(AUD[a])).join('<br>')}</td></tr>
+      <tr><th>Estado</th><td>${EST[f.e]}</td></tr>
+      <tr><th>Revisada con</th><td>Versión publicada R-46 · 24/10/2026</td></tr>
+      <tr><th>Fuente</th><td>Bitácora de cambios del proyecto</td></tr>
+    </tbody></table>`;
+  }
+}
+function plain(f){return f.q+'\n\n'+f.a+(f.p?'\n\n'+f.p.map((s,i)=>(i+1)+'. '+s).join('\n'):'')+(f.n&&f.e!=='confirmar'?'\n\n'+f.n:'')}
+function copy(text,msg){
+  const done=()=>toast(msg);
+  try{navigator.clipboard.writeText(text).then(done,()=>fallback(text,msg))}catch(e){fallback(text,msg)}
+}
+function fallback(text,msg){const t=document.createElement('textarea');t.value=text;document.body.appendChild(t);t.select();try{document.execCommand('copy');toast(msg)}catch(e){toast('Selecciona el texto y cópialo')}t.remove()}
+let tt;function toast(m){const t=$('#toast');t.textContent=m;t.hidden=false;clearTimeout(tt);tt=setTimeout(()=>t.hidden=true,1800)}
+
+function setView(v){state.view=v;$('#v-map').setAttribute('aria-pressed',v==='map');$('#v-list').setAttribute('aria-pressed',v==='list');render()}
+
+/* Eventos */
+document.addEventListener('click',e=>{
+  const q=e.target.closest('[data-id]'); if(q&&!q.closest('.d-tabs')){open(q.dataset.id);return}
+  const n=e.target.closest('[data-m]'); if(n){goMod(n.dataset.m);return}
+  const a=e.target.closest('.tab'); if(a){state.aud=a.dataset.a;document.querySelectorAll('.tab').forEach(t=>t.setAttribute('aria-pressed',t===a));render();return}
+  const t=e.target.closest('.d-tabs button'); if(t){state.tab=t.dataset.t;tabs();return}
+  const g=e.target.closest('[data-go]'); if(g){state.tab=g.dataset.go;tabs();return}
+});
+$('#scrim').onclick=close; $('#d-x').onclick=close;
+$('#v-map').onclick=()=>setView('map'); $('#v-list').onclick=()=>setView('list');
+$('#copy-a').onclick=()=>{const f=FAQ.find(x=>x.id===state.sel);if(f)copy(plain(f),'Respuesta copiada')};
+$('#copy-l').onclick=()=>copy(location.href.split('#')[0]+(state.sel?'#'+state.sel:''),'Enlace copiado');
+let st;$('#q').addEventListener('input',e=>{clearTimeout(st);st=setTimeout(()=>{state.q=e.target.value.trim();render()},120)});
+$('#q').addEventListener('keydown',e=>{if(e.key==='Enter'){const f=FAQ.find(matches);if(f)open(f.id)}});
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'&&!$('#drawer').hidden)close();
+  if(e.key==='/'&&document.activeElement.tagName!=='INPUT'){e.preventDefault();$('#q').focus()}
+});
+
+buildNav(); render();
+const h=(location.hash||'').slice(1); if(h&&FAQ.some(f=>f.id===h))open(h,false);
+</script>
+
+</body>
+</html>
